@@ -15,9 +15,9 @@ namespace TTTMovementToolApplication.Classes
         public string companyAddressVI { get; set; }
         public string companyPhone { get; set; }
         public string companyFax { get; set; }
-        public DateTime createdAt { get; set; }
-        public DateTime updatedAt { get; set; }
-        public DateTime deletedAt { get; set; }
+        public string createdAt { get; set; }
+        public string updatedAt { get; set; }
+        public string deletedAt { get; set; }
         public string companyTitleEN { get; set; }
         public string companyNameEN { get; set; }
         public string companyAddressEN { get; set; }

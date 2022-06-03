@@ -13,7 +13,7 @@ namespace TTTMovementToolApplication
         bool _mysqlvalid;
         bool _mssqlvalid; 
         primarystudentsController primarystudentscontroller;
-        configbannersController configbannerscontroller;
+        configurationsController configurationscontroller;
         #endregion
 
         public Form1()
@@ -115,7 +115,7 @@ namespace TTTMovementToolApplication
                 Synctimer.Start();
                 btnSync.Text = "Stop";
                 primarystudentscontroller = new primarystudentsController();
-                configbannerscontroller = new configbannersController();
+                configurationscontroller = new configurationsController();
             }
             else if (btnSync.Text == "Stop")
             {
@@ -128,7 +128,7 @@ namespace TTTMovementToolApplication
         private void Synctimer_Tick(object sender, EventArgs e)
         {
             //primarystudentscontroller.SyncDBs();
-            configbannerscontroller.SyncDBs();
+            configurationscontroller.SyncDBs();
         }
     }
 }
