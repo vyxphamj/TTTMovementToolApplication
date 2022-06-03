@@ -13,6 +13,7 @@ namespace TTTMovementToolApplication
         bool _mysqlvalid;
         bool _mssqlvalid; 
         primarystudentsController primarystudentscontroller;
+        configbannersController configbannerscontroller;
         #endregion
 
         public Form1()
@@ -30,13 +31,13 @@ namespace TTTMovementToolApplication
             //Init MySQL DB 
             txtMySQLHost.Text = "localhost";
             txtMySQLPort.Text = "3306";
-            txtMySQLDatabase.Text = "students";
+            txtMySQLDatabase.Text = "thanhthien_prod";
             txtMySQLUserName.Text = "root";
             txtMySQLPassword.Text = "TT12345";
 
             //Init MSSQL DB
             txtMSSQLDataSource.Text = "GIAVY-LAPTOP";
-            txtMSSQLDatabase.Text = "students";
+            txtMSSQLDatabase.Text = "thanhthien_prod";
         }
 
         private void btnTestMySQL_Click(object sender, EventArgs e)
@@ -114,6 +115,7 @@ namespace TTTMovementToolApplication
                 Synctimer.Start();
                 btnSync.Text = "Stop";
                 primarystudentscontroller = new primarystudentsController();
+                configbannerscontroller = new configbannersController();
             }
             else if (btnSync.Text == "Stop")
             {
@@ -125,7 +127,8 @@ namespace TTTMovementToolApplication
 
         private void Synctimer_Tick(object sender, EventArgs e)
         {
-            primarystudentscontroller.SyncDBs();
+            //primarystudentscontroller.SyncDBs();
+            configbannerscontroller.SyncDBs();
         }
     }
 }
