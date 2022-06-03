@@ -180,8 +180,8 @@ namespace TTTMovementToolApplication.Controller
                         dataReader = command.ExecuteReader();
                         MSSQLconn.Close();
                     }
-                    List<configbanners> exceptlist = MySQLlist.Except(MSSQLlist).ToList();
-                    foreach (configbanners student in exceptlist)
+                    //List<configbanners> exceptlist = MySQLlist.Except(MSSQLlist).ToList();
+                    foreach (configbanners student in MySQLlist)
                     {
                         MSSQLconn = DBUtils.GetDBMSSQLConnection();
                         using (MSSQLconn)
@@ -191,10 +191,10 @@ namespace TTTMovementToolApplication.Controller
                             SqlDataReader dataReader;
                             string query;
                             query = "INSERT INTO configbanners (id, companyTitleVI, companyNameVI, logoImage, companyAddressVI, companyPhone, companyFax, createdAt, updatedAt, deletedAt, companyTitleEN, companyNameEN, companyAddressEN, companyEmail, companyWebsite, companyFooterEN, companyFooterVI, parameterTableOptions, optionDisplayFooter,logoFooter,titleStationAirVI,titleStationWaterVI,titleStationAirEN,titleStationWaterEN,subTitleHeaderVI,subTitleHeaderEN) VALUES ("
-                                + student.id.ToString() + ",'" 
+                                + student.id.ToString() + ",N'" 
                                 + student.companyTitleVI + "','"
                                 + student.companyNameVI + "','"
-                                + student.logoImage + "','"
+                                + student.logoImage + "',N'"
                                 + student.companyAddressVI + "','"
                                 + student.companyPhone + "','"
                                 + student.companyFax + "','"
@@ -206,15 +206,15 @@ namespace TTTMovementToolApplication.Controller
                                 + student.companyAddressEN + "','"
                                 + student.companyEmail + "','"
                                 + student.companyWebsite + "','"
-                                + student.companyFooterEN + "','"
+                                + student.companyFooterEN + "',N'"
                                 + student.companyFooterVI + "','"
                                 + student.parameterTableOptions + "','"
                                 + student.optionDisplayFooter + "','"
-                                + student.logoFooter + "','"
-                                + student.titleStationAirVI + "','"
+                                + student.logoFooter + "',N'"
+                                + student.titleStationAirVI + "',N'"
                                 + student.titleStationWaterVI + "','"
                                 + student.titleStationAirEN + "','"
-                                + student.titleStationWaterEN + "','"
+                                + student.titleStationWaterEN + "',N'"
                                 + student.subTitleHeaderVI + "','"
                                 + student.subTitleHeaderEN + "');";
                             command = new SqlCommand(query, MSSQLconn);
